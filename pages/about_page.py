@@ -1,4 +1,4 @@
-from base_page import BasePage
+from .base_page import BasePage
 
 class AboutPage(BasePage):
     def __init__(self, page, base_url):
@@ -15,9 +15,14 @@ class AboutPage(BasePage):
     def open_about_page(self):
         return self.goto(self.url)
 
-    # Get banner text
-    def get_banner_title(self):
-        return self.banner_title.inner_text()
+    # Get header text
+    def get_header_title(self):
+        if self.banner_title.is_visible():
+            return self.banner_title.inner_text().strip()
+        return None
 
-    def get_banner_text(self):
-        return self.banner_text.inner_text()
+    # Get header title
+    def get_header_text(self):
+        if self.banner_text.is_visible():
+            return self.banner_text.inner_text().strip()
+        return None
