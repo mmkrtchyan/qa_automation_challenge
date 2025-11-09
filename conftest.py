@@ -44,7 +44,7 @@ def page(request):
         elif browser_name == "firefox":
             browser = p.firefox.launch(headless=False)
         elif browser_name == "webkit":
-            browser = p.webkit.launch(headless=True)
+            browser = p.webkit.launch(headless=False)
         else:
             raise ValueError(f"Unknown browser: {browser_name}")
 
