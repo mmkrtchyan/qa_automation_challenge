@@ -36,35 +36,39 @@ cd qa_automation_challenge
 python3 -m venv myenv
 source myenv/bin/activate   # macOS/Linux
 myenv\Scripts\activate      # Windows
+
 ```
 
-# 3. Install dependencies – Install Python packages required for Playwright and the tests
+3. **Install dependencies – Install Python packages required for Playwright and the tests**
+
 ```bash
 pip install -r requirements.txt
 playwright install
+
 ```
 
-# 4. Run a single test file – Example: Run the *About Page* test in *production* on *Chromium* browser
+4. Run a single test file – Example: Run the *About Page* test in *production* on *Chromium* browser
 ```bash
 pytest tests/test_about.py --env=production --browser=chromium -v
+
 ```
-# 5. Run all tests – Example: Run *all* tests in *production* on *Chromium* browser
+5. Run all tests – Example: Run *all* tests in *production* on *Chromium* browser
 ```bash
 pytest tests/ --env=production --browser=chromium -v
-```
 
-# 6. Run the GitHub PR CSV script – Fetch all open PRs from a repository and save to CSV
+```
+6. Run the GitHub PR CSV script – Fetch all open PRs from a repository and save to CSV
 ```bash
 python api_testing/github_pr_to_csv.py
 ```
 
-# 7. Running in different browsers – Supported browsers: chromium, firefox, webkit
+7. Running in different browsers – Supported browsers: chromium, firefox, webkit
 
 ```bash
 pytest tests/test_about.py --env=production --browser=firefox -v
 ```
 
-# 8. Running in different environments – Supported environments: local, staging, production
+8. Running in different environments – Supported environments: local, staging, production
 ```bash
 pytest tests/test_home.py --env=staging --browser=chromium -v
 ```
