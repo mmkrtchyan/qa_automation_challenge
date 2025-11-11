@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from pages.account_page import AccountPage
 
@@ -81,11 +83,12 @@ def test_open_registration_page(page, base_url):
 
     account.click_signup()
     account.page.wait_for_timeout(1000)
-
     # Assert URL changed from login page
-    login_url = f"{base_url}account.html"
+    signup_url = f"{base_url}signup.html"
     current_url = account.get_current_url()
-    assert current_url != login_url, f"BUG: Registration page did not open, still at {current_url}"
+    print(current_url)
+    print(signup_url)
+    assert not current_url != signup_url, f"BUG: Registration page did not open, still at {current_url}"
 
 
 # Invalid login with wrong credentials
