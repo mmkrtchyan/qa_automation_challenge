@@ -1,5 +1,3 @@
-import time
-
 import pytest
 from pages.account_page import AccountPage
 
@@ -80,14 +78,12 @@ def test_logout(page, base_url, config):
 def test_open_registration_page(page, base_url):
     account = AccountPage(page, base_url)
     account.open_account()
-
     account.click_signup()
     account.page.wait_for_timeout(1000)
+
     # Assert URL changed from login page
     signup_url = f"{base_url}signup.html"
     current_url = account.get_current_url()
-    print(current_url)
-    print(signup_url)
     assert not current_url != signup_url, f"BUG: Registration page did not open, still at {current_url}"
 
 
